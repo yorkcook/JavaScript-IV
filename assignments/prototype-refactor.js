@@ -27,16 +27,27 @@ Prototype Refactor
 */
 
 
-function GameObject (goAttributes) {
-    this.createdAt = new Date ();
-    this.name = goAttributes.name;
-    this.dimensions = goAttributes.dimensions;
-  }
+// function GameObject (goAttributes) {
+//     this.createdAt = new Date ();
+//     this.name = goAttributes.name;
+//     this.dimensions = goAttributes.dimensions;
+//   }
   
-  GameObject.prototype.destroy = function () {
-    return `${this.name} was removed from the game.` ;
-  }
+//   GameObject.prototype.destroy = function () {
+//     return `${this.name} was removed from the game.` ;
+//   }
   
+
+  class GameObject {
+      constructor (attributes){
+        this.createdAt = new Date ();
+        this.name = attributes.name;
+        this.dimensions = attributes.dimensions;
+      }
+      destroy(){
+          console.log(`${this.name} was removed from the game.`);
+      }
+  }
   
   
   
@@ -48,19 +59,28 @@ function GameObject (goAttributes) {
   */
   
   
-  function CharacterStats (stats) {
-    GameObject.call (this, stats);
-    this.healthPoints = stats.healthPoints;
+//   function CharacterStats (stats) {
+//     GameObject.call (this, stats);
+//     this.healthPoints = stats.healthPoints;
     
+//   }
+  
+//   CharacterStats.prototype = Object.create(GameObject.prototype);
+  
+//   CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage.`;
+//   }
+  
+  class CharacterStats extends GameObject {
+      constructor(stats){
+          super(stats);
+          this.healthPoints = stats.healthPoints;
+      }
+      takeDamage() {
+        console.log(`${this.name} took damage.`);
+      }
   }
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  }
-  
-  
+
   
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -78,20 +98,32 @@ function GameObject (goAttributes) {
     * Instances of CharacterStats should have all of the same properties as GameObject.
   */
   
-  function Humanoid (characteristics) {
-    CharacterStats.call (this, characteristics)
-    this.team = characteristics.team;
-    this.weapons = characteristics.weapons;
-    this.language = characteristics.language;
+//   function Humanoid (characteristics) {
+//     CharacterStats.call (this, characteristics)
+//     this.team = characteristics.team;
+//     this.weapons = characteristics.weapons;
+//     this.language = characteristics.language;
   
+//   }
+  
+//   Humanoid.prototype = Object.create(CharacterStats.prototype);
+  
+//   Humanoid.prototype.greet =  function ()  {
+//     return `${this.name} offers a greeting in ${this.language}`;
+//   }
+  
+
+  class Humanoid extends CharacterStats {
+      constructor(characteristics){
+          super(characteristics);
+          this.team = characteristics.team;
+          this.weapons = characteristics.weapons;
+          this.language = characteristics.language;
+      }
+      greet() {
+          console.log(`${this.name} offers a greeting in ${this.language}`)
+      }
   }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet =  function ()  {
-    return `${this.name} offers a greeting in ${this.language}`;
-  }
-  
   
   
   // function humanTest 
