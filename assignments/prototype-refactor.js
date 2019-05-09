@@ -45,7 +45,7 @@ Prototype Refactor
         this.dimensions = attributes.dimensions;
       }
       destroy(){
-          console.log(`${this.name} was removed from the game.`);
+         return `${this.name} was removed from the game.`;
       }
   }
   
@@ -77,7 +77,7 @@ Prototype Refactor
           this.healthPoints = stats.healthPoints;
       }
       takeDamage() {
-        console.log(`${this.name} took damage.`);
+        return `${this.name} took damage.`;
       }
   }
 
@@ -121,7 +121,7 @@ Prototype Refactor
           this.language = characteristics.language;
       }
       greet() {
-          console.log(`${this.name} offers a greeting in ${this.language}`)
+          return `${this.name} offers a greeting in ${this.language}`
       }
   }
   
