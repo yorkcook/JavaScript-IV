@@ -19,7 +19,7 @@ class Instructor extends Person {
        this.catchPhrase = teacher.catchPhrase;
     }
        demo(subject){
-           return `Today we are learning about ${subject} where subject is the param passed in.`;
+           console.log(`Today we are learning about ${subject} where subject is the param passed in.`);
        }
        grade(student){
            console.log(`${student.name} receives a perfect score on ${subject}.`);
@@ -52,12 +52,60 @@ class ProjectManager extends Instructor{
         this.favInstructor = helper.favInstructor;
     }
     standUp(channel){
-        console.log(`${helper.name} announces to ${channel}, @channel standy times! `);
+        console.log(`${this.name} announces to ${channel}, @channel standy times! `);
     }
     debugsCode(helper){
         console.log(`${helper} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+const charlie = new Person ({
+    name: 'Charlie',
+    age: 25,
+    location: 'Venus',
+});
+
+const lauren = new Person ({
+    name: 'Lauren',
+    age: 24,
+    location: 'Oregon',
+});
+
+const gold = new Instructor({
+    name: 'Goldfiner',
+    age: 65,
+    location: 'underground lair',
+    specialty: 'evil plots',
+    favLanguage: 'Java',
+    catchPhrase: 'No Mr. Bond I expect you to die',
+});
+
+const bond = new Instructor({
+    name: 'James Bond',
+    age: 55,
+    location: 'the Milky Way',
+    specialty: 'throwing knives',
+    favLanguage: 'C++',
+    catchPhrase: 'plot twist!',
+});
+
+const sponge = new Student ({
+    name: 'Sponge Bob Square Pants',
+    age: 20,
+    location: 'under the sea',
+    previousBackground: 'burger flipper',
+    className: 'datascience13',
+    favSubjects: 'flexbox',
+});
+
+const solo = new Student ({
+    name: 'Han Solo',
+    age: 62,
+    location: 'spaceship',
+    previousBackground: 'smuggler',
+    className: 'iux15',
+    favSubjects: 'jedi mind tricks',
+});
 
 const york = new ProjectManager ({
     name: 'York',
@@ -81,4 +129,5 @@ const gabe = new ProjectManager ({
     favInstructor: 'Josh Knell',
 });
 
-console.log((gabe.gradClassName));
+
+console.log(sponge.favSubjects)
