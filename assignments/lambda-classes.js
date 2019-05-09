@@ -55,7 +55,7 @@ class ProjectManager extends Instructor{
         console.log(`${this.name} announces to ${channel}, @channel standy times! `);
     }
     debugsCode(helper){
-        console.log(`${helper} debugs ${student.name}'s code on ${subject}`);
+        console.log(`${helper} debugs ${pupil.name}'s code on ${subject}`);
     }
 }
 
@@ -95,7 +95,10 @@ const sponge = new Student ({
     location: 'under the sea',
     previousBackground: 'burger flipper',
     className: 'datascience13',
-    favSubjects: 'flexbox',
+    favSubjects: [
+        'flexbox', 
+        'block formatting', 
+        'lunchtime',],
 });
 
 const solo = new Student ({
@@ -104,7 +107,10 @@ const solo = new Student ({
     location: 'spaceship',
     previousBackground: 'smuggler',
     className: 'iux15',
-    favSubjects: 'jedi mind tricks',
+    favSubjects: [
+        'jedi mind tricks', 
+        'flying', 
+        'coding'],
 });
 
 const york = new ProjectManager ({
