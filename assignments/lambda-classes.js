@@ -36,16 +36,19 @@ class Student extends Person {
         this.className = pupil.className;
         this.favSubjects = pupil.favSubjects;
     }
-    listsSubjects(){
-        console.log(subject);
+    listsSubjects(favSubjects){
+            favSubjects.map(function (sub){
+                return sub;
+            });
     }
-    prAssignment(student, subject){
-        return`${student.name} has submitted a PR for ${subject}`;
+    prAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge(student, subject){
-        return `${student.name} has begun sprint challenge on ${subject}.`;
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}.`;
     }
 }
+
 
 
 
@@ -55,11 +58,11 @@ class ProjectManager extends Instructor{
         this.gradClassName = helper.gradClassName;
         this.favInstructor = helper.favInstructor;
     }
-    standUp(name, channel){
-        return (`${name} announces to ${channel}, @channel standy times! `);
+    standUp(channel){
+        return (`${this.name} announces to ${channel}, @channel standy times! `);
     }
-    debugsCode(name, student, subject){
-        return `${name} debugs ${student.name}'s code on ${subject}`;
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -141,11 +144,14 @@ const gabe = new ProjectManager ({
 });
 
 
-console.log(sponge.favSubjects)
+console.log(sponge.favSubjects);
 console.log(gold.grade(solo, 'Java'));
-console.log(solo.sprintChallenge(solo,'test'));
-console.log(york.standUp('John', 'web20'));
+console.log(solo.sprintChallenge('test'));
+console.log(york.standUp('web20'));
 console.log(gabe.catchPhrase);
 console.log(solo.favSubjects);
 console.log(bond.age);
-console.log(gabe.debugsCode('Gabe', solo, 'Java'));
+console.log(gabe.debugsCode(bond,'Java'));
+console.log(gold.listsSubject);
+console.log(bond.grade(solo, 'JS'));
+console.log(sponge.prAssignment('JS'));
