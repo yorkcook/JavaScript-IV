@@ -21,11 +21,13 @@ class Instructor extends Person {
        demo(subject){
            console.log(`Today we are learning about ${subject} where subject is the param passed in.`);
        }
-       grade(student){
+       grade(student, subject){
            console.log(`${student.name} receives a perfect score on ${subject}.`);
        } 
     
 }
+
+
 
 class Student extends Person {
     constructor(pupil){
@@ -37,13 +39,15 @@ class Student extends Person {
     listsSubjects(){
         console.log(subject);
     }
-    prAssignment(subject){
-        console.log(`${pupil.name} has submitted a PR for ${subject}`);
+    prAssignment(student, subject){
+        console.log(`${student.name} has submitted a PR for ${subject}`);
     }
-    sprintChallenge(subject){
-        console.log(`${pupil.name} has begun sprint challenge on ${subject}.`);
+    sprintChallenge(student, subject){
+        console.log(`${student.name} has begun sprint challenge on ${subject}.`);
     }
 }
+
+
 
 class ProjectManager extends Instructor{
     constructor(helper){
@@ -51,13 +55,14 @@ class ProjectManager extends Instructor{
         this.gradClassName = helper.gradClassName;
         this.favInstructor = helper.favInstructor;
     }
-    standUp(channel){
-        console.log(`${this.name} announces to ${channel}, @channel standy times! `);
+    standUp(name, channel){
+        return (`${name} announces to ${channel}, @channel standy times! `);
     }
-    debugsCode(helper){
-        console.log(`${helper} debugs ${pupil.name}'s code on ${subject}`);
+    debugsCode(name, student, subject){
+        return `${name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
 
 const charlie = new Person ({
     name: 'Charlie',
@@ -137,3 +142,10 @@ const gabe = new ProjectManager ({
 
 
 console.log(sponge.favSubjects)
+gold.grade(solo, 'Java');
+solo.sprintChallenge(solo,'test');
+console.log(york.standUp('John', 'web20'));
+console.log(gabe.catchPhrase);
+console.log(solo.favSubjects);
+console.log(bond.age);
+console.log(gabe.debugsCode('Gabe', sponge, 'Java'));
