@@ -19,10 +19,10 @@ class Instructor extends Person {
        this.catchPhrase = teacher.catchPhrase;
     }
        demo(subject){
-           console.log(`Today we are learning about ${subject} where subject is the param passed in.`);
+           return `Today we are learning about ${subject} where subject is the param passed in.`;
        }
        grade(student, subject){
-           console.log(`${student.name} receives a perfect score on ${subject}.`);
+           return `${student.name} receives a perfect score on ${subject}.`;
        } 
     
 }
@@ -40,10 +40,10 @@ class Student extends Person {
         console.log(subject);
     }
     prAssignment(student, subject){
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        return`${student.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(student, subject){
-        console.log(`${student.name} has begun sprint challenge on ${subject}.`);
+        return `${student.name} has begun sprint challenge on ${subject}.`;
     }
 }
 
@@ -77,7 +77,7 @@ const lauren = new Person ({
 });
 
 const gold = new Instructor({
-    name: 'Goldfiner',
+    name: 'Goldfinger',
     age: 65,
     location: 'underground lair',
     specialty: 'evil plots',
@@ -142,10 +142,10 @@ const gabe = new ProjectManager ({
 
 
 console.log(sponge.favSubjects)
-gold.grade(solo, 'Java');
-solo.sprintChallenge(solo,'test');
+console.log(gold.grade(solo, 'Java'));
+console.log(solo.sprintChallenge(solo,'test'));
 console.log(york.standUp('John', 'web20'));
 console.log(gabe.catchPhrase);
 console.log(solo.favSubjects);
 console.log(bond.age);
-console.log(gabe.debugsCode('Gabe', sponge, 'Java'));
+console.log(gabe.debugsCode('Gabe', solo, 'Java'));
