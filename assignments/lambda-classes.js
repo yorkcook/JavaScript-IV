@@ -1,5 +1,6 @@
 // CODE here for your Lambda Classes
 
+
 class Person {
     constructor(attributes) {
         this.name = attributes.name;
@@ -36,9 +37,9 @@ class Student extends Person {
         this.className = pupil.className;
         this.favSubjects = pupil.favSubjects;
     }
-    listsSubjects(favSubjects){
-            favSubjects.map(function (sub){
-                return sub;
+    listsSubjects(){
+           return this.favSubjects.map(function (sub){
+               return sub;
             });
     }
     prAssignment(subject){
@@ -48,9 +49,6 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
 }
-
-
-
 
 class ProjectManager extends Instructor{
     constructor(helper){
@@ -65,6 +63,8 @@ class ProjectManager extends Instructor{
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
+
 
 
 const charlie = new Person ({
@@ -106,7 +106,7 @@ const sponge = new Student ({
     favSubjects: [
         'flexbox', 
         'block formatting', 
-        'lunchtime',],
+        'lunchtime'],
 });
 
 const solo = new Student ({
@@ -151,7 +151,8 @@ console.log(york.standUp('web20'));
 console.log(gabe.catchPhrase);
 console.log(solo.favSubjects);
 console.log(bond.age);
-console.log(gabe.debugsCode(bond,'Java'));
-console.log(gold.listsSubject);
+console.log(gabe.debugsCode(sponge,'Java'));
+console.log(solo.listsSubjects());
 console.log(bond.grade(solo, 'JS'));
 console.log(sponge.prAssignment('JS'));
+console.log(sponge.listsSubjects())
